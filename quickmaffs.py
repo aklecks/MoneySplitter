@@ -25,13 +25,11 @@ while i in range(personenzahl-2):
     for a in range(i, i + gleichzahlig):
         differenz2[oldpos[a]] += np.pi + a
         oldpos[a + 1] = list(differenz2).index(sortiert[a + 1])
-        print(oldpos)
-        print(differenz)
-        print(differenz2)
     i += 1 + gleichzahlig
 
 # ausgabe
 print(differenz[0])
+print(differenz)
 a = 0
 ende = personenzahl -1
 while sortiert[a] < 0:
