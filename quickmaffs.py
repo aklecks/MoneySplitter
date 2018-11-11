@@ -30,12 +30,13 @@ def quickmaffs(data):
 
     print('oldpos after while: ', oldpos)
 
-
     # ausgabe
     a = 0
     ende = personenzahl - 1
     loop_count = 0
     while sortiert.count(0) <= personenzahl - 2:
+        if sortiert[a] >= - 0.005:
+            break
         if loop_count > ende:  # avoid endless loop
             print('!!FATAL ERROR!!')
             break
@@ -81,9 +82,9 @@ def quickmaffs(data):
             # ausgabe
             print(("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[ende]) + ": " + str(differenz_rounded)))
             # änderung der jeweiligen Beträge auf 0
-            sortiert[ende] = 0.0
-            sortiert[a] = 0.0
-            sortiert = sorted(sortiert)
+            differenz[oldpos[ende]] = 0.0
+            differenz[oldpos[a]] = 0.0
+            sortiert = sorted(differenz)
             # permutierung von oldpos
             p0 = oldpos[0]
             pe = oldpos[ende]
