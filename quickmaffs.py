@@ -7,17 +7,17 @@ data = load_data()
 summe = [sum(data['Person0']), sum(data['Person1']), sum(data['Person2']), sum(data['Person3']), sum(data['Person4'])]
 gesamtsumme = sum(summe)
 personenzahl = data.shape[1]
-print(personenzahl)
+print('personenzahl', personenzahl)
 durchschnitt = np.mean(summe)
-print(durchschnitt)
+print('durchschnitt', durchschnitt)
 differenz = summe - durchschnitt
 differenz2 = differenz.copy()
-print(differenz)
+print('differenz', differenz)
 sortiert = sorted(differenz)
-print(sortiert)
+print('sortiert', sortiert)
 # welche person ist sortiert[i]
 oldpos = np.array([list(differenz).index(sortiert[i]) for i in range(personenzahl)])
-print(oldpos)
+print('oldpos: ', oldpos)
 # richtige numerierung von leuten die gleichviel gezahlt haben
 i = 0
 while i in range(personenzahl-2):
