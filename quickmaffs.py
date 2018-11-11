@@ -31,20 +31,18 @@ print('oldpos after while: ', oldpos)
 
 
 # ausgabe
-print('differenz[0]: ', differenz[0])
-print('differenz: ', differenz)
 a = 0
 ende = personenzahl - 1
 while sortiert[a] < 0:
     if sortiert[a] + sortiert[ende] > 0:
         # runden auf 2 dezimalstellen
         differenz_rounded = -1 * np.around(differenz[oldpos[a]], decimals=2)
-        print("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[ende]) + ":" + str(differenz_rounded))
-        differenz[oldpos[a]] = 0
+        print("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[ende]) + ": " + str(differenz_rounded))
         differenz[oldpos[ende]] += differenz[oldpos[a]]
+        differenz[oldpos[a]] = 0
         sortiert = sorted(differenz)
-        print(differenz)
-        print(sortiert)
+        print('differenz: ', differenz)
+        print('sortiert: ', sortiert)
         p0 = oldpos[0]
         oldpos = np.delete(oldpos, 0)
         oldpos = np.insert(oldpos, sortiert.index(0), p0)
