@@ -1,12 +1,13 @@
 import pandas as pd
 import numpy as np
-
+from timeit import default_timer
 
 def quickmaffs(data):
-
-    summe = [sum(data['Person0']), sum(data['Person1']), sum(data['Person2']), sum(data['Person3']), sum(data['Person4'])]
-    gesamtsumme = sum(summe)
+    print('calculating..')
+    start = default_timer()  # to time the function
     personenzahl = data.shape[1]
+    summe = [sum(data['Person' + str(i)]) for i in range(personenzahl)]
+    gesamtsumme = sum(summe)
     print('personenzahl: ', personenzahl)
     durchschnitt = np.mean(summe)
     print('durchschnitt: ', durchschnitt)
@@ -33,7 +34,11 @@ def quickmaffs(data):
     # ausgabe
     a = 0
     ende = personenzahl - 1
+    loop_count = 0
     while sortiert.count(0) <= personenzahl - 2:
+        if loop_count > ende:  # avoid endless loop
+            print('!!FATAL ERROR!!')
+            break
         if sortiert[a] + sortiert[ende] > 0:
             # runden auf 2 dezimalstellen
             differenz_rounded = -1 * np.around(differenz[oldpos[a]], decimals=2)
@@ -67,3 +72,8 @@ def quickmaffs(data):
             oldpos = np.insert(oldpos, sortiert.index(0), p0)
             oldpos = np.delete(oldpos, ende)
             oldpos = np.insert(oldpos, sortiert.index(0), pe)
+
+        loop_count += 1
+
+    stop = default_timer()
+    print('calculating took ', stop - start, ' seconds')
