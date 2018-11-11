@@ -1,10 +1,9 @@
 import pandas as pd
 import numpy as np
-from help_functions import *
+
 
 def quickmaffs(data):
 
-    data = load_data()
     summe = [sum(data['Person0']), sum(data['Person1']), sum(data['Person2']), sum(data['Person3']), sum(data['Person4'])]
     gesamtsumme = sum(summe)
     personenzahl = data.shape[1]
