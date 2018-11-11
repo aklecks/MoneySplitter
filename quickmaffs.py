@@ -26,6 +26,7 @@ while i in range(personenzahl-2):
         differenz2[oldpos[a]] += np.pi + a
         oldpos[a + 1] = list(differenz2).index(sortiert[a + 1])
     i += 1 + gleichzahlig
+print('olpos after while: ', oldpos)
 
 # ausgabe
 print(differenz[0])
