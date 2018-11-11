@@ -1,5 +1,6 @@
 from help_functions import *
+from quickmaffs import *
 
-print("hello world")
 
 data = load_data()
+quickmaffs(data)
