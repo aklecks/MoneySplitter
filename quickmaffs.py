@@ -35,7 +35,7 @@ differenz = np.around(differenz, decimals=2)
 print('differenz[0]: ', differenz[0])
 print('differenz: ', differenz)
 a = 0
-ende = personenzahl -1
+ende = personenzahl - 1
 while sortiert[a] < 0:
     if sortiert[a] + sortiert[ende] > 0:
         print("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[ende]) + ":" + str(differenz[oldpos[a]]))
