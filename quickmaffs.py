@@ -70,4 +70,4 @@ while sortiert.count(0) <= personenzahl - 2:
 
 
 
-
+# test test
