@@ -33,7 +33,7 @@ print('oldpos after while: ', oldpos)
 # ausgabe
 a = 0
 ende = personenzahl - 1
-while sortiert[a] < 0:
+while sortiert.count(0) <= personenzahl - 2:
     if sortiert[a] + sortiert[ende] > 0:
         # runden auf 2 dezimalstellen
         differenz_rounded = -1 * np.around(differenz[oldpos[a]], decimals=2)
@@ -41,23 +41,32 @@ while sortiert[a] < 0:
         differenz[oldpos[ende]] += differenz[oldpos[a]]
         differenz[oldpos[a]] = 0
         sortiert = sorted(differenz)
-        print('differenz: ', differenz)
-        print('sortiert: ', sortiert)
         p0 = oldpos[0]
         oldpos = np.delete(oldpos, 0)
         oldpos = np.insert(oldpos, sortiert.index(0), p0)
-        print(oldpos)
 
-        a += 1
     elif sortiert[a] + sortiert[ende] < 0:
-        sortiert_rounded = np.around(sortiert[personenzahl], decimals=2)
-        print(("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[personenzahl]) + ": " + str(sortiert_rounded)))
-        sortiert[personenzahl] = 0
-        sortiert[a] += sortiert[personenzahl]
+        sortiert_rounded = np.around(sortiert[ende], decimals=2)
+        print(("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[ende]) + ": " + str(sortiert_rounded)))
+        sortiert[ende] = 0
+        sortiert[a] += sortiert[ende]
         sortiert = sorted(sortiert)
-        a += 1
-    else:
-        a += 1
+        pe = oldpos[ende]
+        oldpos = np.delete(oldpos, ende)
+        oldpos = np.insert(oldpos, sortiert.index(0), pe)
+
+    elif sortiert[a] + sortiert[ende] == 0 and sortiert[a] < 0:
+        sortiert_rounded = np.around(sortiert[ende], decimals=2)
+        print(("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[ende]) + ": " + str(sortiert_rounded)))
+        sortiert[ende] = 0
+        sortiert[0] = 0
+        sortiert = sorted(sortiert)
+        p0 = oldpos[0]
+        pe = oldpos[ende]
+        oldpos = np.delete(oldpos, 0)
+        oldpos = np.insert(oldpos, sortiert.index(0), p0)
+        oldpos = np.delete(oldpos, ende)
+        oldpos = np.insert(oldpos, sortiert.index(0), pe)
 
 
 
