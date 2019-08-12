@@ -1,9 +1,10 @@
 from help_functions import *
 from quickmaffs import *
 
-# TODO richtige Namen fuer Personen verwenden
+# TODO richtige Namen fuer Personen verwenden (Chris)
 # TODO Einlesen von excel Tabelle
 # TODO Ausgabe von Summen der Ausgaben der Teilnehmer jeweils + Differenz zum Durchschnitt (vermutlich am einfachsten als pandas Tabelle)
+# TODO clean Code
 
 print(os.getcwd())
 filepath = 'data/bigdata.csv'
