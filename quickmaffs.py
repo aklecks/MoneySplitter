@@ -6,12 +6,13 @@ from timeit import default_timer
 def quickmaffs(data):
     print('calculating..')
     start = default_timer()  # to time the function
+    names_list = list(data.columns)
     personenzahl = data.shape[1]
-    summe = [sum(data['Person' + str(i)]) for i in range(personenzahl)]
+    sums_list = [sum(data[names_list[i]]) for i in range(personenzahl)]
     print('personenzahl: ', personenzahl)
-    durchschnitt = np.mean(summe)
+    durchschnitt = np.mean(sums_list)
     print('durchschnitt: ', durchschnitt)
-    differenz = summe - durchschnitt
+    differenz = sums_list - durchschnitt
     differenz2 = differenz.copy()
     print('differenz: ', differenz)
     sortiert = sorted(differenz)
@@ -43,7 +44,7 @@ def quickmaffs(data):
             # zu überweisender betrag gerundet auf 2 dezimalstellen
             differenz_rounded = -1 * np.around(differenz[oldpos[a]], decimals=2)
             # ausgabe
-            print("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[ende]) + ": " + str(differenz_rounded))
+            print(names_list[oldpos[a]] + " -> " + names_list[oldpos[ende]] + ": " + str(differenz_rounded))
             # änderung der übrigen beträge und sortierung
             differenz[oldpos[ende]] += differenz[oldpos[a]]
             v0 = differenz[oldpos[ende]]
@@ -61,7 +62,7 @@ def quickmaffs(data):
             # zu überweisender betrag gerundet auf 2 dezimalstellen
             differenz_rounded = np.around(differenz[oldpos[ende]], decimals=2)
             # ausgabe
-            print(("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[ende]) + ": " + str(differenz_rounded)))
+            print((names_list[oldpos[a]] + " -> " + names_list[oldpos[ende]] + ": " + str(differenz_rounded)))
             # änderung der übrigen beträge und sortierung
             differenz[oldpos[a]] += differenz[oldpos[ende]]
             v0 = differenz[oldpos[a]]
@@ -79,7 +80,7 @@ def quickmaffs(data):
             # zu überweisender betrag gerundet auf 2 dezimalstellen
             differenz_rounded = np.around(differenz[oldpos[ende]], decimals=2)
             # ausgabe
-            print(("Person " + str(oldpos[a]) + " -> Person " + str(oldpos[ende]) + ": " + str(differenz_rounded)))
+            print((names_list[oldpos[a]] + " -> " + names_list[oldpos[ende]] + ": " + str(differenz_rounded)))
             # änderung der jeweiligen Beträge auf 0
             differenz[oldpos[ende]] = 0.0
             differenz[oldpos[a]] = 0.0
