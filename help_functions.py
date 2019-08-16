@@ -8,8 +8,12 @@ def load_data(filepath='data/testdata.csv'):
     load the data from csv file
     """
     print('loading data..')
-    data = pd.read_csv(filepath)
-    #print('data: \n', data)
+    # read the data from file
+    data = pd.read_csv(filepath, dtype=float)
+    # fill in NaN values with zero
+    data.fillna(0, inplace=True)
+
+    print('data: \n', data)
     #print('erste spalte: \n', data['Person1'])
     #print('erste spalte zweiter eintrag: \n', data['Person1'][1])
     return data
