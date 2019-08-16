@@ -35,7 +35,7 @@ def quickmaffs(data):
     ende = num_persons - 1
     differenz_rounded = 1  # just initialization
     loop_count = 0  # to count the number of loops
-
+    print('\nDie folgenden Transaktionen werden vorgeschlagen:\n\n' + '-'*50)
     while sortiert.count(0) <= num_persons - 2:
         if loop_count > ende:  # avoid endless loop
             print('!!FATAL ERROR!!')
@@ -99,4 +99,4 @@ def quickmaffs(data):
         loop_count += 1
 # TODO maybe add sanity check
     stop = default_timer()
-    print('calculating took ', stop - start, ' seconds')
+    print('-'*50 + '\n\ncalculating took ', stop - start, ' seconds')
