@@ -25,7 +25,7 @@ if __name__ == '__main__':
         filepath = input('Bitte Pfad zur csv Tabelle eingeben: \n')
 
     if create_data_flag:
-        create_data(3000, 500, use_real_names=False)
+        create_data(2000, 10, use_real_names=False)
         filepath = 'data/bigdata.csv'
 
     # filepath = 'data/open_office_test.csv'
