@@ -12,14 +12,13 @@ def quickmaffs2(data):
     sums_list = [sum(data[names_list[i]]) for i in range(num_persons)]
     mean = np.mean(sums_list)
     difference_array = np.array(sums_list - mean)
-    difference_rounded = 1
 
-    print('Personenzahl: %s\nDurschnitt der Ausgaben: %f' % (num_persons, mean))
+    print('Personenzahl: %s\nDurschnitt der Ausgaben: %f' % (num_persons, float(mean)))
     print('\nDie folgenden Transaktionen werden vorgeschlagen:\n\n' + '-' * 50)
     for i in range(num_persons - 1):
         maxpos = int(np.argmax(difference_array))
         minpos = int(np.argmin(difference_array))
-        difference_rounded = float(min(-1 * np.around(difference_array.min(), np.around(difference_array.max()))), decimals=2)
+        difference_rounded = float(np.around(min(-1 * difference_array.min(), difference_array.max()), decimals=2))
         if difference_rounded < 0.009:
             break
         if - difference_array.min() <= difference_array.max():
