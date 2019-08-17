@@ -7,7 +7,7 @@ def quickmaffs2(data):
     start = default_timer()             # to time the function
     names_list = list(data.columns)     # lists the names of participants
     num_persons = data.shape[1]         # number of participants
-    sums_list = [sum(data[names_list[i]]) for i in range(num_persons)]  # sums of spent money (same index as names)
+    sums_list = list(data.loc['Sum'])  # sums of spent money (same index as names)
     mean = np.mean(sums_list)           # mean value of spent money
     difference_array = np.array(sums_list - mean)   # difference between spent money and mean value for each person
 

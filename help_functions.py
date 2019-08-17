@@ -16,6 +16,8 @@ def load_data(filepath='data/testdata.csv'):
     data = pd.read_csv(filepath, usecols=columns_we_want, dtype=float)
     # fill in NaN values with zero
     data.fillna(0, inplace=True)
+    # calculate and append sums for all columns
+    data.loc['Sum', :] = data.sum()
 
     # print it out
     print('data: \n\n', data, '\n\n')
