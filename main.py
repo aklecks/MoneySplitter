@@ -19,13 +19,13 @@ if __name__ == '__main__':
     filepath = args.filepath
     create_data_flag = args.create_data_flag
     filepath = 'data/bigdata.csv'
-    create_data_flag = False
+    create_data_flag = True
 
     if filepath is None:
         filepath = input('Bitte Pfad zur csv Tabelle eingeben: \n')
 
     if create_data_flag:
-        create_data(2000, 10, use_real_names=False)
+        create_data(50000, 100, use_real_names=False)
         filepath = 'data/bigdata.csv'
 
     # filepath = 'data/open_office_test.csv'
