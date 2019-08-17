@@ -1,10 +1,7 @@
 import os
 from help_functions import load_data, create_data
 from quickmaffs import quickmaffs
-from quickmaffs2 import quickmaffs2
 from argparse import ArgumentParser
-
-# TODO Ausgabe von Summen der Ausgaben der Teilnehmer jeweils + Differenz zum Durchschnitt (vermutlich am einfachsten als pandas Tabelle)
 
 
 if __name__ == '__main__':
@@ -19,15 +16,15 @@ if __name__ == '__main__':
     create_data_flag = args.create_data_flag
 
     # stuff for running in IDE
-    filepath = 'data/testdata.csv'
+    # filepath = 'data/testdata.csv'
     # filepath = 'data/bigdata.csv'
-    # create_data_flag = False
+    # create_data_flag = True
 
     if filepath is None:
         filepath = input('Please enter path to csv file: \n')
 
     if create_data_flag:
-        create_data(300, 500, use_real_names=False)
+        create_data(3000, 500, use_real_names=False)
         filepath = 'data/bigdata.csv'
 
     # check if filepath is valid
@@ -39,5 +36,4 @@ if __name__ == '__main__':
     data = load_data(filepath)
 
     # calculate
-    # quickmaffs(data)
-    quickmaffs2(data)
+    quickmaffs(data)
