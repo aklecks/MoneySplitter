@@ -20,17 +20,13 @@ def quickmaffs2(data):
         maxpos = int(np.argmax(difference_array))
         minpos = int(np.argmin(difference_array))
         difference_rounded = float(min(-1 * np.around(difference_array.min(), np.around(difference_array.max()))), decimals=2)
+        if difference_rounded < 0.009:
+            break
         if - difference_array.min() <= difference_array.max():
-
-            if difference_rounded < 0.009:
-                break
             print('%s --> %s: %.2f' % (names_list[minpos], names_list[maxpos], difference_rounded))
             difference_array[maxpos] += difference_array.min()
             difference_array[minpos] = 0
         else:
-            difference_rounded = float(np.around(difference_array.max(), decimals=2))
-            if difference_rounded < 0.009:
-                break
             print('%s --> %s: %.2f' % (names_list[minpos], names_list[maxpos], difference_rounded))
             difference_array[minpos] += difference_array.max()
             difference_array[maxpos] = 0
