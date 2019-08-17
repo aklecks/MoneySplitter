@@ -1,5 +1,5 @@
 from help_functions import *
-from quickmaffs import *
+from quickmaffs2 import *
 from argparse import ArgumentParser
 
 # TODO Einlesen von excel Tabelle
@@ -34,4 +34,4 @@ if __name__ == '__main__':
     data = load_data(filepath)
 
     # calculate
-    quickmaffs(data)
+    quickmaffs2(data)
