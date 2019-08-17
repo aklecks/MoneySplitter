@@ -18,7 +18,7 @@ def load_data(filepath='data/testdata.csv'):
     data.fillna(0, inplace=True)
 
     # print it out
-    print('data: \n', data)
+    print('data: \n\n', data, '\n\n')
     return data
 
 
