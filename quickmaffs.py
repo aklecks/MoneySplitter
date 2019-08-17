@@ -99,4 +99,4 @@ def quickmaffs(data):
         loop_count += 1
 # TODO maybe add sanity check
     stop = default_timer()
-    print('-'*50 + '\n\ncalculating took ', stop - start, ' seconds')
+    print('-'*50 + '\n\ncalculating took ', stop - start, ' seconds\n')
