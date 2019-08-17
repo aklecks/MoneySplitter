@@ -9,15 +9,7 @@ def load_data(filepath='data/testdata.csv'):
     """
     print('loading data..')
     # get the column names (so we can drop those that we don't want)
-    try:
-        columns = list(pd.read_csv(filepath, nrows=1))
-    except FileNotFoundError:
-        # tell them and get correct path
-        filepath = input('Sorry, the file %s does not exist. Please enter a valid filepath:\n' % filepath)
-        # go again
-        data = load_data(filepath)
-        return data
-
+    columns = list(pd.read_csv(filepath, nrows=1))
     # we don't want columns with empty names (since these are used for transaction purpose)
     columns_we_want = [col for col in columns if 'Unnamed' not in col]
     # read the data from file
@@ -32,7 +24,7 @@ def load_data(filepath='data/testdata.csv'):
 
 def create_data(num_persons, num_transactions, filename='bigdata.csv', use_real_names=True):
     """
-    create a csv file with no_columns and no_rows
+    create a csv file with random entries
     """
     print('creating data..')
 

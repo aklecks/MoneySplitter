@@ -1,6 +1,7 @@
-from help_functions import *
-from quickmaffs import *
-from quickmaffs2 import *
+import os
+from help_functions import load_data, create_data
+from quickmaffs import quickmaffs
+from quickmaffs2 import quickmaffs2
 from argparse import ArgumentParser
 
 # TODO Ausgabe von Summen der Ausgaben der Teilnehmer jeweils + Differenz zum Durchschnitt (vermutlich am einfachsten als pandas Tabelle)
@@ -28,6 +29,11 @@ if __name__ == '__main__':
     if create_data_flag:
         create_data(300, 500, use_real_names=False)
         filepath = 'data/bigdata.csv'
+
+    # check if filepath is valid
+    if not os.path.isfile(filepath):
+        # tell them and get correct path
+        filepath = input('Sorry, the file %s does not exist. Please enter a valid filepath:\n' % filepath)
 
     # load the data
     data = load_data(filepath)
