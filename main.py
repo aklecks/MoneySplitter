@@ -19,6 +19,7 @@ if __name__ == '__main__':
     filepath = args.filepath
     create_data_flag = args.create_data_flag
     filepath = 'data/bigdata.csv'
+    create_data_flag = False
 
     if filepath is None:
         filepath = input('Bitte Pfad zur csv Tabelle eingeben: \n')
