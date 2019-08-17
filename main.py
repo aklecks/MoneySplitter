@@ -1,11 +1,9 @@
 from help_functions import *
+from quickmaffs import *
 from quickmaffs2 import *
 from argparse import ArgumentParser
 
-# TODO Einlesen von excel Tabelle
 # TODO Ausgabe von Summen der Ausgaben der Teilnehmer jeweils + Differenz zum Durchschnitt (vermutlich am einfachsten als pandas Tabelle)
-# TODO clean Code
-# TODO option für Spalte mit Verwendungszwecken
 
 
 if __name__ == '__main__':
@@ -18,21 +16,22 @@ if __name__ == '__main__':
 
     filepath = args.filepath
     create_data_flag = args.create_data_flag
-    filepath = 'data/bigdata.csv'
-    create_data_flag = True
+
+    # stuff for running in IDE
+    filepath = 'data/open_office_test.csv'
+    # filepath = 'data/bigdata.csv'
+    create_data_flag = False
 
     if filepath is None:
-        filepath = input('Bitte Pfad zur csv Tabelle eingeben: \n')
+        filepath = input('Please enter path to csv file: \n')
 
     if create_data_flag:
-        create_data(50000, 100, use_real_names=False)
+        create_data(300, 500, use_real_names=False)
         filepath = 'data/bigdata.csv'
-
-    # filepath = 'data/open_office_test.csv'
-    # filepath = 'data/bigdata.csv'
 
     # load the data
     data = load_data(filepath)
 
     # calculate
+    # quickmaffs(data)
     quickmaffs2(data)

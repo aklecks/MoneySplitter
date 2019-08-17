@@ -12,7 +12,7 @@ def quickmaffs2(data):
     mean = np.mean(sums_list)           # mean value of spent money
     difference_array = np.array(sums_list - mean)   # difference between spent money and mean value for each person
 
-    print('Personenzahl: %s\nDurschnitt der Ausgaben: %f' % (num_persons, float(mean)))
+    print('Personenzahl: %s\nDurschnitt der Ausgaben: %.2f' % (num_persons, float(mean)))
     print('\nDie folgenden Transaktionen werden vorgeschlagen:\n\n' + '-' * 50)
     for i in range(num_persons - 1):
         maxpos = int(np.argmax(difference_array))       # position of the person who spent the most (after transaction)
