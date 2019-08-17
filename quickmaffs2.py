@@ -19,10 +19,13 @@ def quickmaffs2(data):
         minpos = int(np.argmin(difference_array))       # position of the person who spent the least (after transaction)
         # to find the transaction value we take the rounded smaller number out of min and max of the difference array
         difference_rounded = float(np.around(min(-1 * difference_array.min(), difference_array.max()), decimals=2))
+        # cutoff if rounded difference would be 0.00
         if difference_rounded < 0.009:
             break
+        # case differentiation to see which person's sums will be changed by the transaction
         if - difference_array.min() <= difference_array.max():
             print('%s --> %s: %.2f' % (names_list[minpos], names_list[maxpos], difference_rounded))
+            # transaction
             difference_array[maxpos] += difference_array.min()
             difference_array[minpos] = 0
         else:
