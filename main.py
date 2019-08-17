@@ -16,7 +16,7 @@ if __name__ == '__main__':
     create_data_flag = args.create_data_flag
 
     # stuff for running in IDE
-    # filepath = 'data/testdata.csv'
+    # filepath = 'data/open_office_test.csv'
     # filepath = 'data/bigdata.csv'
     # create_data_flag = True
 
@@ -28,7 +28,7 @@ if __name__ == '__main__':
         filepath = 'data/bigdata.csv'
 
     # check if filepath is valid
-    if not os.path.isfile(filepath):
+    while not os.path.isfile(filepath):
         # tell them and get correct path
         filepath = input('Sorry, the file %s does not exist. Please enter a valid filepath:\n' % filepath)
 
