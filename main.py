@@ -16,7 +16,7 @@ if __name__ == '__main__':
     create_data_flag = args.create_data_flag
 
     # stuff for running in IDE
-    filepath = 'data/open_office_test.csv'
+    # filepath = 'data/open_office_test.csv'
     # filepath = 'data/bigdata.csv'
     # create_data_flag = True
 
