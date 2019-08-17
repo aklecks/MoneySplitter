@@ -14,7 +14,7 @@ def quickmaffs2(data):
     difference_array = np.array(sums_list - mean)
 
     print('Personenzahl: %s\nDurschnitt der Ausgaben: %f' % (num_persons, mean))
-    for i in range num_persons-1
+    for i in range num_persons-1:
         if - difference_array.min() <= difference_array.max():
             difference_rounded = -1 * np.around(difference_array.min(), decimals=2)
             print('%s --> %s: %f' % (names_list[np.argmin(difference_array)], names_list[np.argmax(difference_array)], difference_rounded))
