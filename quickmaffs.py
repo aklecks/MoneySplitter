@@ -34,4 +34,4 @@ def quickmaffs(data):
             difference_array[maxpos] = 0
 
     stop = default_timer()
-    print('-' * 50 + '\n\ncalculating took %.8f seconds\n' % (stop - start))
+    print('-' * 50 + '\n\ncalculating took %.8f seconds' % (stop - start))

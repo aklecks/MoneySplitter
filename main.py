@@ -1,11 +1,11 @@
 import os
+from argparse import ArgumentParser
+from timeit import default_timer
 from help_functions import load_data, create_data
 from quickmaffs import quickmaffs
-from argparse import ArgumentParser
-
 
 if __name__ == '__main__':
-
+    start = default_timer()
     # some command line options
     parser = ArgumentParser()
     parser.add_argument('--file', dest='filepath', default=None)
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     create_data_flag = args.create_data_flag
 
     # stuff for running in IDE
-    # filepath = 'data/open_office_test.csv'
+    filepath = 'data/open_office_test.csv'
     # filepath = 'data/bigdata.csv'
     # create_data_flag = True
 
@@ -37,3 +37,7 @@ if __name__ == '__main__':
 
     # calculate
     quickmaffs(data)
+
+    # runtime
+    stop = default_timer()
+    print('total runtime: %.8f seconds\n' % (stop - start))
