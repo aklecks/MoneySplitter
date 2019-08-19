@@ -6,6 +6,7 @@ from quickmaffs import quickmaffs
 
 if __name__ == '__main__':
     start = default_timer()
+
     # some command line options
     parser = ArgumentParser()
     parser.add_argument('--file', dest='filepath', default=None)
@@ -27,10 +28,13 @@ if __name__ == '__main__':
         create_data(3000, 500, use_real_names=False)
         filepath = 'data/bigdata.csv'
 
-    # check if filepath is valid
-    while not os.path.isfile(filepath):
+    # check if filepath is valid and csv
+    while not (os.path.isfile(filepath) and filepath.endswith('.csv')):
         # tell them and get correct path
-        filepath = input('Sorry, the file %s does not exist. Please enter a valid filepath:\n' % filepath)
+        if not filepath.endswith('.csv'):
+            filepath = input('Sorry, only .csv files are supported. Please enter path to a csv file:\n')
+        if not os.path.isfile(filepath):
+            filepath = input('Sorry, the file %s does not exist. Please enter a valid filepath:\n' % filepath)
 
     # load the data
     data = load_data(filepath)

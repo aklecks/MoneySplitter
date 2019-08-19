@@ -50,6 +50,3 @@ def create_data(num_persons, num_transactions, filename='bigdata.csv', use_real_
     os.makedirs('data', exist_ok=True)
     # save the dataframe to disk
     data.to_csv(filepath, index=False)
-
-
-
