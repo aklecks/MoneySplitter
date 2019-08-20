@@ -47,4 +47,4 @@ def quickmaffs(data, output_file='data/results.txt'):
         with open(output_file, 'w') as f:
             f.write(output_str)
 
-        print('saved output to %s\n' % output_file)
+        print('saved output to %s\n' % os.path.abspath(output_file))
