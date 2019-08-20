@@ -21,12 +21,12 @@ if __name__ == '__main__':
     # filepath = 'data/bigdata.csv'
     # create_data_flag = True
 
-    if filepath is None:
-        filepath = input('Please enter path to csv file: \n')
-
     if create_data_flag:
         create_data(3000, 500, use_real_names=False)
         filepath = 'data/bigdata.csv'
+
+    if filepath is None:
+        filepath = input('Please enter path to csv file: \n')
 
     # check if filepath is valid and csv
     while not (os.path.isfile(filepath) and filepath.endswith('.csv')):
