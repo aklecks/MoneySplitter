@@ -12,8 +12,8 @@ def quickmaffs(data, output_file='data/results.txt'):
     mean = np.mean(sums_list)  # mean value of spent money
     difference_array = np.array(sums_list - mean)  # difference between spent money and mean value for each person
     # string for all the output
-    output_str = str(data)
-    output_str += '\n\nNumper of participants: %s\nMean of the expenses: %.2f' % (num_persons, float(mean))
+    output_str = 'data:\n\n%s\n\n' % str(data)
+    output_str += 'Numper of participants: %s\nMean of the expenses: %.2f' % (num_persons, float(mean))
     output_str += '\nThe following transactions are recommended:\n\n' + '-' * 50 + '\n'
 
     for i in range(num_persons - 1):

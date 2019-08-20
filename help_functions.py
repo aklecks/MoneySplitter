@@ -19,8 +19,6 @@ def load_data(filepath='data/testdata.csv'):
     # calculate and append sums for all columns
     data.loc['Sum', :] = data.sum()
 
-    # print it out
-    print('data: \n\n', data, '\n\n')
     return data
 
 
