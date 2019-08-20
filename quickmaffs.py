@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from timeit import default_timer
 
@@ -11,7 +12,8 @@ def quickmaffs(data, output_file='data/results.txt'):
     mean = np.mean(sums_list)  # mean value of spent money
     difference_array = np.array(sums_list - mean)  # difference between spent money and mean value for each person
     # string for all the output
-    output_str = 'Numper of participants: %s\nMean of the expenses: %.2f' % (num_persons, float(mean))
+    output_str = str(data)
+    output_str += '\n\nNumper of participants: %s\nMean of the expenses: %.2f' % (num_persons, float(mean))
     output_str += '\nThe following transactions are recommended:\n\n' + '-' * 50 + '\n'
 
     for i in range(num_persons - 1):
@@ -39,6 +41,8 @@ def quickmaffs(data, output_file='data/results.txt'):
     print(output_str)
 
     if output_file is not None:
+        # make sure path exists
+        os.makedirs('data', exist_ok=True)
         # write to txt file
         with open(output_file, 'w') as f:
             f.write(output_str)
